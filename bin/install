@@ -24,7 +24,7 @@ install() {
     chmod a+x "$install_path/bin/gojq"
   else
     export GOBIN="$install_path/bin"
-    go install https://github.com/itchyny/gojq/cmd/gojq@"${ASDF_INSTALL_VERSION}"
+    go install github.com/itchyny/gojq/cmd/gojq@"${ASDF_INSTALL_VERSION}"
   fi
 }
 
