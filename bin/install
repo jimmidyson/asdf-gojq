@@ -23,15 +23,8 @@ install() {
     mv "$download_path/bin/gojq" "$install_path/bin"
     chmod a+x "$install_path/bin/gojq"
   else
-    cd "$download_path"
-    git submodule update --init --depth=1
-    autoreconf -fi
-    ./configure --disable-maintainer-mode --with-oniguruma=builtin
-    make -j8
-    make check
-    cd "$download_path"
-    mkdir "$install_path/bin/"
-    cp "./gojq" "$install_path/bin/"
+    export GOBIN="$install_path/bin"
+    go install https://github.com/itchyny/gojq/cmd/gojq@v"${ASDF_INSTALL_VERSION}"
   fi
 }
 

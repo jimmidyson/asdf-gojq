@@ -4,9 +4,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-declare -r GOJQ_REPO="https://github.com/itchyny/gojq.git"
 declare -r RELEASES_URL="https://api.github.com/repos/itchyny/gojq/releases"
-
 
 error_exit() {
   echo "$1" >&2
@@ -128,15 +126,7 @@ download() {
       unzip "$tmp_download_path"
     fi
     cp -- */gojq "$download_path/bin"
-  else
-    rm -rf "$download_path"
-    git init "$download_path"
-    cd "$download_path"
-    git remote add origin "$GOJQ_REPO"
-    git fetch --depth=1 origin "$download_version"
-    git reset --hard "$download_version"
   fi
 }
-
 
 download "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_DOWNLOAD_PATH"
