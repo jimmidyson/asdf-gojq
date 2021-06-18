@@ -25,7 +25,7 @@ jobs:
       - name: Check cpu type
         run: uname -m
       - name: Running asdf's plugin-test
-        uses: asdf-vm/actions/plugin-test@v1.0.1
+        uses: asdf-vm/actions/plugin-test@v1
         with:
           command: gojq --version
         env:
