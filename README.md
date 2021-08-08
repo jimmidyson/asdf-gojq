@@ -1,4 +1,4 @@
-# asdf-jq
+# asdf-gojq
 
 ![](https://github.com/jimmidyson/asdf-gojq/workflows/ci/badge.svg)
 
